@@ -1,6 +1,8 @@
 package com.vehicleexpensetracker.entity;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -42,6 +45,9 @@ public class User {
 				            name = "role_id", referencedColumnName = "id"))
 	
 	private Collection<Role> roles;
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Vehicle> vehicles = new ArrayList<>();
 	
 	public User() {
 		

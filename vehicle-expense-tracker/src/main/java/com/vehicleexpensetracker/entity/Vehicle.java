@@ -24,7 +24,9 @@ public class Vehicle {
 
     @Column(name = "year")
     private Integer year;
-
-    // add any additional fields, methods, or annotations as needed
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
 }

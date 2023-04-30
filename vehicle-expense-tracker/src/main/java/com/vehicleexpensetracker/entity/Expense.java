@@ -23,9 +23,11 @@ public class Expense {
     @Column(name = "date")
     private LocalDate date;
 
-
     @Column(name = "notes")
     private String notes;
+    
+    @Column(name = "expense_type")
+    private String expenseType;
 
     // add any additional fields, methods, or annotations as needed
 
