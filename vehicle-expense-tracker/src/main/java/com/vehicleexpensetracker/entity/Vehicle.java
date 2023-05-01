@@ -29,4 +29,13 @@ public class Vehicle {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+	public Vehicle(String make, String model, Integer year, User user) {
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.user = user;
+	}
+    
+    
+
 }

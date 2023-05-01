@@ -7,5 +7,7 @@ import com.vehicleexpensetracker.web.dto.UserRegistrationDto;
 
 public interface UserService extends UserDetailsService {
 	User save(UserRegistrationDto registrationDto);
+	
+	
 
 }

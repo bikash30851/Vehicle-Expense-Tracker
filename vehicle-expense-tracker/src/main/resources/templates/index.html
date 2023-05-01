@@ -68,21 +68,27 @@
 					</div>
 
 					<div class="modal-body">
-						<form th:action="@{/vehicles}" method="post">
+						<form th:action="@{/vehicles}" th:object="${vehicle}" method="post">
 							<div class="form-group">
 								<label for="make">Make</label> <input type="text"
-									class="form-control" id="make" name="make" required>
+									class="form-control" id="make" name="make"  required placeholder="Example Toyota">
 							</div>
 							<div class="form-group">
 								<label for="model">Model</label> <input type="text"
-									class="form-control" id="model" name="model" required>
+									class="form-control" id="model" name="model" required placeholder="Example Avalon">
 							</div>
 							<div class="form-group">
-								<label for="year">Year</label> <input type="number"
-									class="form-control" id="year" name="year" required>
+								<label for="year">Year</label> <select class="form-control"
+									id="year" name="year" required>
+									<option value="" selected disabled hidden>Choose year</option>
+									<option th:each="i : ${#numbers.sequence(1950, 2023)}"
+										th:value="${i}" th:text="${i}"></option>
+
+								</select>
 							</div>
 						</form>
 					</div>
+
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Cancel</button>
@@ -91,7 +97,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<label for="vehicle-select">Select a vehicle:</label> <select
 			id="vehicle-select" name="vehicle">
@@ -116,20 +121,20 @@
 
 
 		<div class="container">
-			
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col">Date</th>
-							<th scope="col">Value</th>
-							<th scope="col">Type of Expense</th>
-							<th scope="col">Amount</th>					
-						</tr>
-					</thead>
-				
-				</table>
-			</div>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Date</th>
+						<th scope="col">Value</th>
+						<th scope="col">Type of Expense</th>
+						<th scope="col">Amount</th>
+					</tr>
+				</thead>
+
+			</table>
 		</div>
+	</div>
 
 
 
